@@ -1,7 +1,7 @@
 const { Worker } = require('worker_threads')
 
 // create a worker for this filename
-new Worker(__filename)
+new Worker('./worker.js')
 .on('exit', () => {
   console.log('[parent]\tworker exited')
 })
