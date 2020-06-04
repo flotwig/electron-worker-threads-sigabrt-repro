@@ -1,13 +1,12 @@
-const { Worker } = require('worker_threads')
+const { Worker } = require("worker_threads");
 
 // create a worker for this filename
-new Worker('./worker.js')
-.on('exit', () => {
-  console.log('[parent]\tworker exited')
-})
+new Worker(require.resolve("./worker.js")).on("exit", () => {
+  console.log("[parent]\tworker exited");
+});
 
 // exit with failing exit code after 1 second
 setTimeout(() => {
-  console.log('[parent]\tcalling process.exit')
-  process.exit(2)
-}, 1000)
+  console.log("[parent]\tcalling process.exit");
+  process.exit(2);
+}, 1000);
